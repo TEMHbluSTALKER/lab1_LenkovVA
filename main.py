@@ -28,7 +28,7 @@ def TaskSelection():
 def PasswordVerification():
     print('Введите пароль.')
     FirstPas = input()
-    pattern = re.fullmatch(r"[A-Za-z0-9\-_]{8,}", FirstPas)
+    pattern = re.fullmatch(r"[A-Za-z0-9\-_\\/\%!\?=()\+]{8,}", FirstPas)
     if pattern == None:
         print('Пароль не принят! (Пароль либо слишком короткий или содержит запрещенные символы.)')
         PasswordVerification()
@@ -36,6 +36,7 @@ def PasswordVerification():
     SecondPas = input()
     if FirstPas == SecondPas:
         print('Пароль принят.')
+        exit()
     else:
         print('Пароль не принят! (Пароли не совпадают.)')
         PasswordVerification()
